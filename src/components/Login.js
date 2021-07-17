@@ -30,6 +30,7 @@ const Login = () => {
         localStorage.setItem("token",res.data.payload);
       })
       .catch((err)=>{
+        setError("Username or Password not valid");
         console.log({err});
       })
       // make api call
