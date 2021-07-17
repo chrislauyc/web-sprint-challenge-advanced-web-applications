@@ -6,8 +6,9 @@ export const axiosWithAuth=()=>{
         const headers={
             authorization:token
         }
+        const baseURL = "http://localhost:5000/api";
         
-        return axios.create({headers});
+        return axios.create({headers,baseURL});
     }
 };
 

@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import * as yup from "yup";
 import {useForm} from "../hooks/useForm";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 const schema = yup.object().shape({
   username: yup.string().required("Username or Password not valid"),
   password: yup.string().required("Username or Password not valid")
@@ -11,6 +12,7 @@ const initialValues = {
   password:""
 };
 const Login = () => {
+  const history = useHistory();
   // make a post request to retrieve a token from the api
   // when you have handled the token, navigate to the BubblePage route
   const [formValues,setFormValues,validate] = useForm(initialValues,schema);
@@ -28,6 +30,7 @@ const Login = () => {
       axios.post("http://localhost:5000/api/login",formValues)
       .then((res)=>{
         localStorage.setItem("token",res.data.payload);
+        history.push("/bubblepage");
       })
       .catch((err)=>{
         setError("Username or Password not valid");
