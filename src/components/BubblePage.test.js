@@ -1,5 +1,5 @@
 import React from 'react';
-// import MutationObserver from 'mutationobserver-shim';
+import MutationObserver from 'mutationobserver-shim';
 // import {axiosWithAuth as mockAxios} from '../helpers/axiosWithAuth';
 import mockFetchColorService from '../services/fetchColorService';
 import { render, screen, waitFor} from "@testing-library/react";
